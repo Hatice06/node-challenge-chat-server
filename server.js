@@ -27,9 +27,10 @@ app.get("/", function (req, res) {
 
 // Search text in messages -  /messages/search?text=express
 app.get("/messages/search", (req, res) => {
-  const {text }= req.query;
+  const { text } = req.query;
   const filteredMessages = messages.filter((message) =>
-   message.text.includes(text));
+    message.text.includes(text)
+  );
   res.json(filteredMessages);
 });
 
@@ -37,7 +38,6 @@ app.get("/messages/search", (req, res) => {
 app.get("/messages/latest", (req, res) => {
   res.json(messages.slice(-10));
 });
-
 
 // Read one message specified by an ID
 app.get("/messages/:id", (req, res) => {
